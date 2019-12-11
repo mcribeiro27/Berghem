@@ -1,0 +1,41 @@
+{% extends 'base.html' %} 
+
+{% block title %}Cedulas{% endblock title %} 
+
+{% block content %}
+<form action="/cedulas/cadastro" method="POST"> 
+        <div class="ui form" style="padding: 10px;">
+            <div class="fields">
+                <div class="field">
+                    <label>Notas</label>
+                    <input type="text" name="notas" placeholder="Valor Total">
+                </div>
+            </div>
+        </div>
+        <div style="padding: 10px;">
+            <button class="ui button" type="submit">Submit</button>
+        </div>
+    </form> 
+
+    <table class="ui celled table">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Dinheiro</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            {% for ced in cedula %}
+            <tbody>
+              <tr>
+                <td>{{ced._id}}</td>
+                <td>{{ced.notas}}</td>
+                <td>
+                  <a class="ui button red" href="/cedulas/apagar/{{ced._id}}" name="apagar">Apagar</a>
+                  <a class="ui button blue" href="/cedulas/atualiza/{{ced._id}}" name="atualizar">Atualizar</a>
+                </td>
+              </tr>
+            </tbody>  
+            {% endfor%}
+          </table>
+{% endblock content%}

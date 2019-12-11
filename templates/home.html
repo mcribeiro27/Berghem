@@ -1,0 +1,30 @@
+{% extends 'base.html' %} 
+
+{% block title %}Index{% endblock title %} 
+
+{% block content %}
+<form action="/troco" method="POST"> 
+        <div class="ui form" style="padding: 10px;">
+            <div class="fields">
+                <div class="field">
+                    <label>Valor Total</label>
+                    <input type="text" name="total" placeholder="Valor Total">
+                </div>
+                <div class="field">
+                    <label>Valor Pago</label>
+                    <input type="text" name="pago" placeholder="Valor Pago">
+                </div>
+            </div>
+        </div>
+        <div style="padding: 10px;">
+            <button class="ui button" name="botao" type="submit">Submit</button>
+        </div>
+    </form> 
+    <h1>Troco</h1>
+
+    {% for num in numNotas %}
+
+    <p>{{num}}</p>
+    
+    {% endfor %}
+{% endblock content%}

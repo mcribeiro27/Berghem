@@ -1,0 +1,22 @@
+{% extends 'base.html' %} 
+
+{% block title %}Cedulas{% endblock title %} 
+
+{% block content %}
+<form action="/cedulas/atualiza" method="POST"> 
+    {% for pesq in pesquisa %}
+    <div class="ui form" style="padding: 10px;">
+        <input type="text" name="_id" value="{{ pesq['_id'] }}" hidden>  
+        <div class="fields">
+            <div class="field">
+                <label>Notas</label>
+                <input type="text" name="nova" value="{{ pesq['notas'] }}" placeholder="Dinheiro">
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <div style="padding: 10px;">
+        <button class="ui button">Atualizar</button>
+    </div>
+</form>
+{% endblock content %}
